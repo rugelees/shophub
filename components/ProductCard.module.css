@@ -55,3 +55,7 @@
   color: var(--text-muted);
   margin-bottom: 10px;
 }
+
+.content button {
+  margin-top: auto;
+}
