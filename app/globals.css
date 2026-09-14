@@ -1,28 +1,18 @@
 :root {
-  --bg: #f6f7fb;
+  --bg: #f5f6f8;
   --surface: #ffffff;
-  --text: #0f172a;
-  --text-muted: #64748b;
-  --primary: #4f46e5;
-  --primary-strong: #4338ca;
-  --primary-soft: #eef2ff;
-  --border: #e2e8f0;
-  --success: #16a34a;
-  --warning: #d97706;
-  --danger: #dc2626;
-  --radius: 14px;
-  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
-  --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.08);
+  --text: #222222;
+  --text-muted: #666666;
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --border: #dddddd;
+  --radius: 8px;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 body {
@@ -34,7 +24,6 @@ body {
   font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -44,76 +33,39 @@ a {
 
 .container {
   width: 100%;
-  max-width: 1120px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding-inline: 24px;
+  padding-inline: 20px;
 }
 
 .page {
   flex: 1;
-  padding-block: 40px 64px;
+  padding-block: 32px 48px;
 }
 
 .footer {
-  padding-block: 24px;
+  padding-block: 20px;
   border-top: 1px solid var(--border);
   font-size: 0.85rem;
   color: var(--text-muted);
 }
 
-.footer a {
-  color: var(--primary);
-  font-weight: 600;
-}
-
-.notFound {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding-block: 80px;
-}
-
-.notFoundCode {
-  font-size: 4.5rem;
-  font-weight: 800;
-  line-height: 1;
-  background-image: linear-gradient(135deg, #6366f1, #8b5cf6);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.notFoundTitle {
-  margin-top: 12px;
-  font-size: 1.5rem;
-  font-weight: 800;
-}
-
-.notFoundText {
-  margin-top: 8px;
+.loading {
+  padding-block: 60px;
   color: var(--text-muted);
 }
 
-.notFoundLink {
-  margin-top: 24px;
-  padding: 12px 24px;
-  border-radius: 10px;
-  background-color: var(--primary);
-  color: #ffffff;
+.notFound {
+  padding-block: 60px;
+  text-align: center;
+}
+
+.notFound p {
+  margin-block: 8px 20px;
+  color: var(--text-muted);
+}
+
+.notFound a {
+  color: var(--primary);
   font-weight: 600;
-  transition: background-color 0.2s ease;
-}
-
-.notFoundLink:hover {
-  background-color: var(--primary-strong);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
 }

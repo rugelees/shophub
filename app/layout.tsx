@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ShopHub | Tu tienda de tecnología",
+  title: "ShopHub",
   description:
-    "Plataforma de comercio electrónico construida con Next.js, React Context y la API pública de DummyJSON.",
+    "Tienda web construida con Next.js, React Context y la API de DummyJSON.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -28,16 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Header />
           <main className="page">{children}</main>
           <footer className="container footer">
-            <p>
-              ShopHub — Preparcial de Next.js App Router · Datos de{" "}
-              <a
-                href="https://dummyjson.com/products"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                DummyJSON
-              </a>
-            </p>
+            <p>ShopHub — Hecho con Next.js · Datos de DummyJSON</p>
           </footer>
         </CartProvider>
       </body>

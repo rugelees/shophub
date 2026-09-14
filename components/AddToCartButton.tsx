@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { useCart } from "@/context/CartContext";
 import type { ProductSummary } from "@/types/product";
 import styles from "./AddToCartButton.module.css";
@@ -17,45 +16,15 @@ export default function AddToCartButton({
   disabled = false,
 }: AddToCartButtonProps) {
   const { addItem } = useCart();
-  const [added, setAdded] = useState(false);
-  const timeoutRef = useRef<number | null>(null);
-
-  useEffect(() => {
-    return () => {
-      if (timeoutRef.current !== null) {
-        window.clearTimeout(timeoutRef.current);
-      }
-    };
-  }, []);
-
-  const handleClick = () => {
-    if (disabled) return;
-    addItem(product);
-    setAdded(true);
-    if (timeoutRef.current !== null) {
-      window.clearTimeout(timeoutRef.current);
-    }
-    timeoutRef.current = window.setTimeout(() => setAdded(false), 1400);
-  };
-
-  const classNames = [
-    styles.button,
-    variant === "compact" ? styles.compact : styles.full,
-    added ? styles.added : "",
-    disabled ? styles.disabled : "",
-  ]
-    .filter(Boolean)
-    .join(" ");
 
   return (
     <button
       type="button"
-      className={classNames}
-      onClick={handleClick}
+      className={`${styles.button} ${variant === "compact" ? styles.compact : styles.full}`}
+      onClick={() => addItem(product)}
       disabled={disabled}
-      aria-label={`Añadir ${product.title} al carrito`}
     >
-      {added ? "Añadido ✓" : disabled ? "Sin stock" : "Añadir al carrito"}
+      {disabled ? "Sin stock" : "Añadir al carrito"}
     </button>
   );
 }
