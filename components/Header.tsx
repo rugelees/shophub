@@ -18,6 +18,9 @@ export default function Header() {
           <Link href="/" className={styles.link}>
             Catálogo
           </Link>
+          <Link href="/checkout" className={styles.link}>
+            CheckOut
+          </Link>
           <span className={styles.cart}>
             Carrito: <strong>{totalItems}</strong>
           </span>

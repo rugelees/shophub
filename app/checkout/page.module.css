@@ -1,0 +1,266 @@
+.heading {
+  margin-bottom: 24px;
+}
+
+.heading h1 {
+  font-size: 1.7rem;
+}
+
+.heading p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 380px);
+  gap: 32px;
+  align-items: start;
+}
+
+.summaryHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.summaryHeader .sectionTitle {
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.clearCart {
+  margin-bottom: 16px;
+  padding: 5px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--surface);
+  font-family: inherit;
+  font-size: 0.8rem;
+  color: #dc2626;
+  cursor: pointer;
+}
+
+.clearCart:hover {
+  border-color: #dc2626;
+}
+
+.sectionTitle {
+  margin-bottom: 16px;
+  font-size: 1.15rem;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.summary {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.itemList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-block: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.itemImage {
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.itemInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.itemTitle {
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.itemPrice {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.removeItem {
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 0.8rem;
+  color: #dc2626;
+  cursor: pointer;
+}
+
+.removeItem:hover {
+  text-decoration: underline;
+}
+
+.itemControls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quantity button {
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--surface);
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.quantity button:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.subtotal {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.total {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  text-align: right;
+}
+
+.total strong {
+  color: var(--primary);
+  font-size: 1.15rem;
+}
+
+.formSection {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.field label {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.field input,
+.field select {
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 0.95rem;
+  background-color: var(--surface);
+  color: var(--text);
+}
+
+.field input:focus,
+.field select:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+  border-color: var(--primary);
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.checkbox input {
+  width: auto;
+  padding: 0;
+}
+
+.error {
+  font-size: 0.8rem;
+  color: #dc2626;
+}
+
+.submit {
+  width: 100%;
+  padding: 11px 16px;
+  border: none;
+  border-radius: var(--radius);
+  background-color: var(--primary);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.98rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.submit:hover:not(:disabled) {
+  background-color: var(--primary-dark);
+}
+
+.submit:disabled {
+  background-color: #b6c2d6;
+  cursor: not-allowed;
+}
+
+.confirmed,
+.empty {
+  padding-block: 60px;
+  text-align: center;
+}
+
+.confirmed h1,
+.empty h1 {
+  margin-bottom: 8px;
+}
+
+.confirmed p,
+.empty p {
+  margin-bottom: 20px;
+  color: var(--text-muted);
+}
+
+.confirmedLink {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+@media (max-width: 800px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}

@@ -23,6 +23,10 @@ export interface CartContextValue {
   totalItems: number;
   totalPrice: number;
   addItem: (product: ProductSummary) => void;
+  incrementQuantity: (id: number) => void;
+  decrementQuantity: (id: number) => void;
+  removeItem: (id: number) => void;
+  clearCart: () => void;
 }
 
 const STORAGE_KEY = "shophub-cart";
@@ -112,6 +116,34 @@ export function CartProvider({ children }: { children: ReactNode }) {
     ]);
   }, []);
 
+  const incrementQuantity = useCallback((id: number) => {
+    const current = getSnapshot();
+    commitCart(
+      current.map((item) =>
+        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+      )
+    );
+  }, []);
+  
+  const decrementQuantity = useCallback((id: number) => {
+    const current = getSnapshot();
+    const next = current
+      .map((item) =>
+        item.id === id ? { ...item, quantity: item.quantity - 1 } : item
+      )
+      .filter((item) => item.quantity > 0);
+    commitCart(next);
+  }, []);
+
+  const removeItem = useCallback((id: number) => {
+    const current = getSnapshot();
+    commitCart(current.filter((item) => item.id !== id));
+  }, []);
+
+  const clearCart = useCallback(() => {
+    commitCart(EMPTY_CART);
+  }, []);
+
   const value = useMemo<CartContextValue>(
     () => ({
       items,
@@ -121,8 +153,12 @@ export function CartProvider({ children }: { children: ReactNode }) {
         0
       ),
       addItem,
+      incrementQuantity,
+      decrementQuantity, 
+      removeItem,
+      clearCart,
     }),
-    [items, addItem]
+    [items, addItem, incrementQuantity, decrementQuantity, removeItem, clearCart]
   );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
